@@ -1,0 +1,24 @@
+{
+  "name": "airbnb",
+  "version": "1.0.0",
+  "description": "clone of airbnb website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://StefanoSilv@github.com/StefanoSilv/clone-of-airbnb.git"
+  },
+  "keywords": [
+    "airbnb",
+    "student",
+    "project"
+  ],
+  "author": "Stefano Silvestrini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StefanoSilv/clone-of-airbnb/issues"
+  },
+  "homepage": "https://github.com/StefanoSilv/clone-of-airbnb#readme"
+}
