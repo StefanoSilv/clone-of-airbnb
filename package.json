@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/StefanoSilv/clone-of-airbnb/issues"
   },
-  "homepage": "https://github.com/StefanoSilv/clone-of-airbnb#readme"
+  "homepage": "https://github.com/StefanoSilv/clone-of-airbnb#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
