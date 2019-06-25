@@ -21,9 +21,9 @@ app.get('/', (req, res) => {
 //API
 
 app.get('/api/rooms/:numbers', require('./controllers/room_get.js')) //Bisogna modificarlo con il between
-app.get('/api/rooms/:apt', require('./controllers/type_get.js'))
-app.get('/api/rooms/:nation', require('./controllers/country_get.js'))
-app.get('/api/rooms/:town', require('./controllers/city_get.js'))
+app.get('/api/type/:apt', require('./controllers/type_get.js'))
+app.get('/api/country/:nation', require('./controllers/country_get.js'))
+app.get('/api/city/:town', require('./controllers/city_get.js'))
 
 
 
