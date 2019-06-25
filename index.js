@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 //API
 
 app.get('/api/type/:apt', require('./controllers/type_get.js'))
-app.get('/api/country/:nation', require('./controllers/country_get.js'))
+app.get('/api/countries', require('./controllers/country_get.js'))
 app.get('/api/city/:town', require('./controllers/city_get.js'))
 
 //API with query

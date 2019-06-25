@@ -19,7 +19,7 @@ window.onload= () =>{
 		console.log(err);
 	})
 
-	axios.get('/api/houses').then( (res)=>{
+	axios.get('/api/countries').then( (res)=>{
 		let cities= res.data
 		let city_pointer= document.getElementById('city-banner')
 
@@ -29,7 +29,6 @@ window.onload= () =>{
 				</div>
 				<div class="city-info">
 				<h3>${c.name}</h3>
-				<h4>${c.country}</h4>
 				</div>
 			</div>
 			`)
