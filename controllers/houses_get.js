@@ -41,15 +41,52 @@ module.exports = (req, res) => {
 		}
 		query += `price `
 		if(req.query.price_max && req.query.price_min){
-			query += `BETWEEN ${req.query.price_min} AND ${req.query.price_max}`
+			query += `BETWEEN ${req.query.price_min} AND ${req.query.price_max} `
+			i++
 		}else if(req.query.price_min){
-			query += `> ${req.query.price_min}`
+			query += `> ${req.query.price_min} `
+			i++
 		}else{
-			query += `< ${req.query.price_max}`
+			query += `< ${req.query.price_max} `
+			i++
 		}
 	}
 
+	if(req.query.rooms_max || req.query.rooms_min){
+		if(i!=0){
+			query +=`AND `
+			i=0
+		}
+		query += `rooms `
+		if(req.query.rooms_max && req.query.rooms_min){
+			query += `BETWEEN ${req.query.rooms_min} AND ${req.query.rooms_max} `
+			i++
+		}else if(req.query.rooms_min){
+			query += `> ${req.query.rooms_min} `
+			i++
+		}else{
+			query += `< ${req.query.rooms_max} `
+			i++
+		}
+	}
 
+	if(req.query.rating_max || req.query.rating_min){
+		if(i!=0){
+			query +=`AND `
+			i=0
+		}
+		query += `rating `
+		if(req.query.rating_max && req.query.rating_min){
+			query += `BETWEEN ${req.query.rating_min} AND ${req.query.rating_max} `
+			i++
+		}else if(req.query.rating_min){
+			query += `> ${req.query.rating_min} `
+			i++
+		}else{
+			query += `< ${req.query.rating_max} `
+			i++
+		}
+	}
 
 	// if (req.query.price_max) {
 	// 	query += `price < ${req.query.price_max} `
