@@ -18,7 +18,9 @@ app.get('/', (req, res) => {
 })
 
 
+//API
 
+app.get('/api/rooms/:numbers', require('./controllers/room_get.js'))
 
 
 
