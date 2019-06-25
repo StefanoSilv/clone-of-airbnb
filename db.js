@@ -2,7 +2,7 @@
 
 const {Client}= require('pg')
 
-const db= new Client({connectionString:'postgres://macbookpro:@localhost:5432/airbnb'})
+const db= new Client({connectionString:'postgres://macbookpro:@localhost:5432/macbookpro'})
 
 //Connection of the database
 
