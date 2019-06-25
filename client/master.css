@@ -47,7 +47,7 @@ body{
 	grid-template-columns: 1fr 1fr;
 	grid-row-gap: 10%;
 	border: 1px solid rgb(186, 186, 186);
-	height:100%;
+	height:130%;
 }
 
 .city-imagine{
@@ -57,7 +57,8 @@ body{
 	background-image: url('./images/paris.jpg');
 }
 .city-info{
-	padding-right: 20%;
+	padding-left: 5%;
+	padding-right: 15%;
 	font-size: 14px;
 	padding-top: 5%;
 	padding-bottom:5%;
@@ -77,4 +78,31 @@ body{
 	padding-top: 10%;
 	padding-bottom: 10%;
 	width:100%;
+}
+
+#houses-grid{
+	height:80%;
+	display: grid;
+	margin-left: 15%;
+	margin-right: 5%;
+	margin-top: 10%;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-row-gap: 15%;
+	grid-column-gap: 10%;
+	margin-bottom: 10%;
+}
+
+.houses-imagine{
+	height:60%;
+	background-position: center;
+	background-size: cover;
+	background-image: url('https://res.cloudinary.com/do8qdtgy8/image/upload/v1561451842/airbnb/parigi_l1yw0d.jpg');
+}
+
+.houses{
+	height:100%;
+}
+
+.house-info{
+	border: 1px solid rgb(152, 152, 152)
 }
