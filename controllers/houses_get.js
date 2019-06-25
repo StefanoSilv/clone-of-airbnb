@@ -34,6 +34,23 @@ module.exports = (req, res) => {
 		i++
 	}
 
+	if(req.query.price_max || req.query.price_min){
+		if(i!=0){
+			query +=`AND `
+			i=0
+		}
+		query += `price `
+		if(req.query.price_max && req.query.price_min){
+			query += `BETWEEN ${req.query.price_min} AND ${req.query.price_max}`
+		}else if(req.query.price_min){
+			query += `> ${req.query.price_min}`
+		}else{
+			query += `< ${req.query.price_max}`
+		}
+	}
+
+
+
 	// if (req.query.price_max) {
 	// 	query += `price < ${req.query.price_max} `
 	// }
@@ -43,7 +60,7 @@ module.exports = (req, res) => {
 
 	console.log(req.query);
 	console.log(query)
-	console.log(i);
+	console.log(req.query);
 
 	db.query(query, (err, result) => {
 		if (err) {
