@@ -19,12 +19,13 @@ app.get('/', (req, res) => {
 
 //API
 
-app.get('/api/rooms/:numbers', require('./controllers/room_get.js')) //Bisogna modificarlo con il between
 app.get('/api/type/:apt', require('./controllers/type_get.js'))
 app.get('/api/country/:nation', require('./controllers/country_get.js'))
 app.get('/api/city/:town', require('./controllers/city_get.js'))
 
+//API with query
 
+app.get('/api/houses', require('./controllers/houses_get.js'))
 
 
 

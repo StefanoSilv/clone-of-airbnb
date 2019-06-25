@@ -59,6 +59,8 @@ body{
 .city-info{
 	padding-right: 20%;
 	font-size: 14px;
+	padding-top: 5%;
+	padding-bottom:5%;
 }
 #menu > li > a {
 	color: rgb(196, 196, 196);
