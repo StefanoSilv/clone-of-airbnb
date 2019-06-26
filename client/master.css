@@ -33,7 +33,7 @@ body{
 	border-bottom: : 1px solid rgb(186, 186, 186);
 }
 
-#city-banner{
+#country-banner{
 	display:grid;
 	margin-left: 15%;
 	margin-right: 5%;
@@ -42,7 +42,7 @@ body{
 	width: 80%;
 }
 
-.city{
+.country_minibanner{
 	display: flex;
 	grid-template-columns: 1fr 1fr;
 	grid-row-gap: 10%;
@@ -50,13 +50,13 @@ body{
 	height:130%;
 }
 
-.city-imagine{
+.country-imagine{
 	width:50%;
 	background-position: center;
 	background-size: cover;
 	background-image: url('./images/paris.jpg');
 }
-.city-info{
+.country-info{
 	padding-left: 5%;
 	padding-right: 15%;
 	font-size: 14px;
