@@ -26,7 +26,7 @@ h2{
 	margin-bottom: 5%;
 }
 
-#menu,  #price_min {
+#menu,  #price_min, #rating_min {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	list-style: none;
@@ -35,6 +35,17 @@ h2{
 	padding-right: 5%;
 	width: 60%;
 	padding-bottom: 5%;
+	border-bottom: : 1px solid rgb(186, 186, 186);
+}
+
+#rating_max{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	list-style: none;
+	grid-column-gap: 6%;
+	padding-right: 5%;
+	padding-left: 15%;
+	width: 60%;
 	border-bottom: : 1px solid rgb(186, 186, 186);
 }
 
@@ -154,12 +165,12 @@ h2{
 	padding-bottom:5%;
 }
 
-#price_min > li > a , #price_max > li > a , #menu > li > a {
+#rating_min > li > a , #rating_max > li > a , #price_min > li > a , #price_max > li > a , #menu > li > a {
 	color: rgb(196, 196, 196);
 	text-decoration: none;
 }
 
-#price_min > li , #price_max > li , #menu > li{
+#rating_min > li , #rating_max > li , #price_min > li , #price_max > li , #menu > li{
 	border: 1px solid rgb(186, 186, 186);
 	border-radius: 5px;
 	text-align: center;
@@ -196,7 +207,7 @@ h2{
 	border-bottom-right-radius: 5px;
 }
 
-#text_price_max, #text_price_min{
+#text_rating_min, #text_rating_max, #text_price_max, #text_price_min{
 	padding-left: 15%;
 }
 

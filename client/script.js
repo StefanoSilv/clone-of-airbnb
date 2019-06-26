@@ -78,6 +78,24 @@ window.onload= () =>{
 		`)
 	})
 
+	//Ratings search in the DOM
+
+	let ratings=[1,2,3,4,5]
+	rating_max_pointer= document.getElementById('rating_max')
+	rating_min_pointer= document.getElementById('rating_min')
+
+
+	ratings.forEach( (ra)=> {
+		rating_max_pointer.insertAdjacentHTML('afterBegin',`
+		<li><a class= rating_max_anc href="#">${ra}</a></li>
+		`)
+	})
+	ratings.forEach( (ra)=> {
+		rating_min_pointer.insertAdjacentHTML('afterBegin',`
+		<li><a class="rating_min_anc" href="#">${ra}</a></li>
+		`)
+	})
+
 
 
 	//Houses in the DOM by country
@@ -181,6 +199,94 @@ document.addEventListener( 'click', (e) =>{
 			let pointer= document.getElementById('houses-grid')
 			pointer.innerHTML = ''
 
+			results.forEach( (i) => {
+				let stars=''
+				for (numb=0; numb<= i.rating; numb++){
+					stars += `<i class="far fa-star"></i>`
+				}
+				pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
+					<div class="houses-imagine" style="background-image: url('${i.image}')">
+					</div>
+					<div class="house-info">
+						<h2>${i.name}</h2>
+						<h3>${i.price}</h3>
+						<h4>${stars}</h4>
+					</div>
+				</div>`)
+			})
+		}).catch ((err) => {
+			console.log(err);
+		})
+	}
+})
+
+//Houses in the DOM by price_min
+
+document.addEventListener( 'click', (e) =>{
+	if  (e.target.classList.contains('price_min_anc')){
+		axios.get(`/api/houses?price_min=${e.target.innerHTML}`).then( (res) => {
+			let results = res.data
+			let pointer= document.getElementById('houses-grid')
+			pointer.innerHTML = ''
+
+			results.forEach( (i) => {
+				let stars=''
+				for (numb=0; numb<= i.rating; numb++){
+					stars += `<i class="far fa-star"></i>`
+				}
+				pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
+					<div class="houses-imagine" style="background-image: url('${i.image}')">
+					</div>
+					<div class="house-info">
+						<h2>${i.name}</h2>
+						<h3>${i.price}</h3>
+						<h4>${stars}</h4>
+					</div>
+				</div>`)
+			})
+		}).catch ((err) => {
+			console.log(err);
+		})
+	}
+})
+
+//Houses in the DOM by rating_min
+
+document.addEventListener( 'click', (e) =>{
+	if  (e.target.classList.contains('rating_min_anc')){
+		axios.get(`/api/houses?rating_min=${e.target.innerHTML}`).then( (res) => {
+			let results = res.data
+			let pointer= document.getElementById('houses-grid')
+			pointer.innerHTML = ''
+			results.forEach( (i) => {
+				let stars=''
+				for (numb=0; numb<= i.rating; numb++){
+					stars += `<i class="far fa-star"></i>`
+				}
+				pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
+					<div class="houses-imagine" style="background-image: url('${i.image}')">
+					</div>
+					<div class="house-info">
+						<h2>${i.name}</h2>
+						<h3>${i.price}</h3>
+						<h4>${stars}</h4>
+					</div>
+				</div>`)
+			})
+		}).catch ((err) => {
+			console.log(err);
+		})
+	}
+})
+
+//Houses in the DOM by rating_max
+
+document.addEventListener( 'click', (e) =>{
+	if  (e.target.classList.contains('rating_max_anc')){
+		axios.get(`/api/houses?rating_max=${e.target.innerHTML}`).then( (res) => {
+			let results = res.data
+			let pointer= document.getElementById('houses-grid')
+			pointer.innerHTML = ''
 			results.forEach( (i) => {
 				let stars=''
 				for (numb=0; numb<= i.rating; numb++){
