@@ -41,8 +41,6 @@ window.onload= () =>{
 
 	//Types in the DOM
 	axios.get('/api/types').then( (res)=>{
-		console.log(res.data);
-
 		let type= res.data
 		let type_pointer= document.getElementById('type-banner')
 
@@ -62,6 +60,26 @@ window.onload= () =>{
 	})
 
 
+
+	//Prices in the DOM
+	let prices=[20,50,100,200,300,500]
+	price_max_pointer= document.getElementById('price_max')
+	price_min_pointer= document.getElementById('price_min')
+
+
+	prices.forEach( (pr)=> {
+		price_max_pointer.insertAdjacentHTML('afterBegin',`
+		<li><a href="#">${pr}</a></li>
+		`)
+	})
+	prices.forEach( (pr)=> {
+		price_min_pointer.insertAdjacentHTML('afterBegin',`
+		<li><a href="#">${pr}</a></li>
+		`)
+	})
+
+
+
 	//Houses in the DOM by country
 	document.addEventListener( 'click', (e) =>{
 		let target= e.target.id
@@ -72,13 +90,17 @@ window.onload= () =>{
 				pointer.innerHTML = ''
 
 				results.forEach( (i) => {
+					let stars=''
+					for (numb=0; numb<= i.rating; numb++){
+						stars += `<i class="far fa-star"></i>`
+					}
 					pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
 						<div class="houses-imagine" style="background-image: url('${i.image}')">
 						</div>
 						<div class="house-info">
 							<h2>${i.name}</h2>
 							<h3>${i.price}</h3>
-							<h4>${i.rating}</h4>
+							<h4>${stars}</h4>
 						</div>
 					</div>`)
 				})
@@ -98,23 +120,19 @@ window.onload= () =>{
 				pointer.innerHTML = ''
 
 				results.forEach( (i) => {
-					// let stars_number= `${i.rating}`
-					// for (j = 0; j <= stars_number; j++) {
-					//   <i class="far fa-star"></i>
-					// }
+					let stars=''
+					for (numb=0; numb<= i.rating; numb++){
+						stars += `<i class="far fa-star"></i>`
+					}
 					pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
 						<div class="houses-imagine" style="background-image: url('${i.image}')">
 						</div>
 						<div class="house-info">
 							<h2>${i.name}</h2>
 							<h3>${i.price} €</h3>
-							<h4>${i.rating}</h4>
+							<h4>${stars}</h4>
 						</div>
 					</div>`)
-
-					// for (j = 0; j <= stars_number; j++) {
-					//   <i class="far fa-star"></i>
-					// }
 				})
 			}).catch ((err) => {
 				console.log(err);
@@ -132,15 +150,19 @@ document.addEventListener( 'click', (e) =>{
 			let results = res.data
 			let pointer= document.getElementById('houses-grid')
 			pointer.innerHTML = ''
-			
+
 			results.forEach( (i) => {
+				let stars=''
+				for (numb=0; numb<= i.rating; numb++){
+					stars += `<i class="far fa-star"></i>`
+				}
 				pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
 					<div class="houses-imagine" style="background-image: url('${i.image}')">
 					</div>
 					<div class="house-info">
 						<h2>${i.name}</h2>
 						<h3>${i.price}</h3>
-						<h4>${i.rating}</h4>
+						<h4>${stars}</h4>
 					</div>
 				</div>`)
 			})
@@ -149,3 +171,5 @@ document.addEventListener( 'click', (e) =>{
 		})
 	}
 })
+
+//Houses in the DOM by price_max
