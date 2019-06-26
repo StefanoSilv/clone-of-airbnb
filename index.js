@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 //API
 
-app.get('/api/type/:apt', require('./controllers/type_get.js'))
+app.get('/api/types', require('./controllers/type_get.js'))
 app.get('/api/countries', require('./controllers/country_get.js'))
 app.get('/api/cities', require('./controllers/city_get.js'))
 

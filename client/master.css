@@ -11,18 +11,22 @@ body{
 	background-color: rgb(255, 255, 255)
 }
 
+h2{
+	display: inline-block;
+}
+
 .logo{
 	margin-top: 3%;
 	margin-left: 3%;
 	background-image: url('./images/airbnb.jpeg');
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 	width:10%;
-	height:10%;
+	height:15%;
 	margin-bottom: 5%;
 }
 
-#menu{
+#menu,  #price_min {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	list-style: none;
@@ -34,11 +38,22 @@ body{
 	border-bottom: : 1px solid rgb(186, 186, 186);
 }
 
+#price_max{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	list-style: none;
+	grid-column-gap: 6%;
+	padding-right: 5%;
+	padding-left: 15%;
+	width: 60%;
+	border-bottom: : 1px solid rgb(186, 186, 186);
+}
+
 #city-banner{
 	display:grid;
 	margin-left: 15%;
 	margin-right: 5%;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 6%;
 	grid-row-gap: 35%;
 	width: 80%;
@@ -46,10 +61,22 @@ body{
 }
 
 #country-banner{
+	height: 10%;
 	display:grid;
 	margin-left: 15%;
 	margin-right: 5%;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-column-gap: 6%;
+	width: 80%;
+}
+
+#type-banner{
+	height: 10%;
+	margin-top: 5%;
+	display:grid;
+	margin-left: 15%;
+	margin-right: 5%;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 6%;
 	width: 80%;
 }
@@ -71,16 +98,33 @@ body{
 	border-radius: 10px;
 }
 
+.type_minibanner{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border: 1px solid rgb(186, 186, 186);
+	height:130%;
+	border-radius: 10px;
+}
+
 .city-imagine{
 	width:80%;
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 	/* background-image: url('./images/paris.jpg'); */
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
 
 .country-imagine{
+	width:80%;
+	background-position: center;
+	background-size: cover;
+	/* background-image: url('./images/paris.jpg'); */
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.type-imagine{
 	width:80%;
 	background-position: center;
 	background-size: cover;
@@ -102,13 +146,20 @@ body{
 	padding-top: 5%;
 	padding-bottom:5%;
 }
-#menu > li > a {
-	color: rgb(196, 196, 196);
-	text-decoration: none;
 
+.city-info{
+	padding-right: 15%;
+	font-size: 14px;
+	padding-top: 5%;
+	padding-bottom:5%;
 }
 
-#menu > li{
+#price_min > li > a , #price_max > li > a , #menu > li > a {
+	color: rgb(196, 196, 196);
+	text-decoration: none;
+}
+
+#price_min > li , #price_max > li , #menu > li{
 	border: 1px solid rgb(186, 186, 186);
 	border-radius: 5px;
 	text-align: center;
@@ -128,20 +179,23 @@ body{
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-row-gap: 15%;
 	grid-column-gap: 10%;
-	margin-bottom: 10%;
+	margin-bottom: 3%;
 }
 
 .houses-imagine{
 	height:60%;
 	background-position: center;
 	background-size: cover;
-	/* background-image: url('https://res.cloudinary.com/do8qdtgy8/image/upload/v1561451842/airbnb/parigi_l1yw0d.jpg'); */
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 
-/* .houses{
-	height:100%;
-} */
-
 .house-info{
-	border: 1px solid rgb(152, 152, 152)
+	border: 1px solid rgb(152, 152, 152);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#text_price_max, #text_price_min{
+	padding-left: 15%;
 }

@@ -20,7 +20,6 @@ window.onload= () =>{
 	})
 
 	//Cities in the DOM
-
 	axios.get('/api/cities').then( (res)=>{
 		let city= res.data
 		let city_pointer= document.getElementById('city-banner')
@@ -40,16 +39,35 @@ window.onload= () =>{
 		console.log(err);
 	})
 
+	//Types in the DOM
+	axios.get('/api/types').then( (res)=>{
+		console.log(res.data);
+
+		let type= res.data
+		let type_pointer= document.getElementById('type-banner')
+
+		type.forEach( (j)=> {
+			type_pointer.insertAdjacentHTML('afterBegin',`
+			<a class="type_minibanner">
+				<div class="type-imagine" style="background-image: url('${j.image}')">
+				</div>
+				<div class="type-info">
+				<h3 class="random_name3" id=${j.id}>${j.name}</h3>
+				</div>
+			</a>
+			`)
+		})
+	}).catch((err) => {
+		console.log(err);
+	})
+
 
 	//Houses in the DOM by country
 	document.addEventListener( 'click', (e) =>{
 		let target= e.target.id
-		console.log(e.target);
 		if  (e.target.classList.contains('random_name1')){
 			axios.get(`/api/houses?country=${e.target.id}`).then( (res) => {
 				let results = res.data
-				console.log(results);
-				console.log('hello');
 				let pointer= document.getElementById('houses-grid')
 				pointer.innerHTML = ''
 
@@ -76,21 +94,27 @@ window.onload= () =>{
 		if  (e.target.classList.contains('random_name2')){
 			axios.get(`/api/houses?city=${e.target.id}`).then( (res) => {
 				let results = res.data
-				console.log(results);
-				console.log('hello');
-				let pointer= document.getElementById('houses-grid')
+				let pointer = document.getElementById('houses-grid')
 				pointer.innerHTML = ''
 
 				results.forEach( (i) => {
+					// let stars_number= `${i.rating}`
+					// for (j = 0; j <= stars_number; j++) {
+					//   <i class="far fa-star"></i>
+					// }
 					pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
 						<div class="houses-imagine" style="background-image: url('${i.image}')">
 						</div>
 						<div class="house-info">
 							<h2>${i.name}</h2>
-							<h3>${i.price}</h3>
+							<h3>${i.price} €</h3>
 							<h4>${i.rating}</h4>
 						</div>
 					</div>`)
+
+					// for (j = 0; j <= stars_number; j++) {
+					//   <i class="far fa-star"></i>
+					// }
 				})
 			}).catch ((err) => {
 				console.log(err);
@@ -98,3 +122,30 @@ window.onload= () =>{
 		}
 	})
 }
+
+//Houses in the DOM by types
+
+document.addEventListener( 'click', (e) =>{
+	let target= e.target.id
+	if  (e.target.classList.contains('random_name3')){
+		axios.get(`/api/houses?type=${e.target.id}`).then( (res) => {
+			let results = res.data
+			let pointer= document.getElementById('houses-grid')
+			pointer.innerHTML = ''
+			
+			results.forEach( (i) => {
+				pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
+					<div class="houses-imagine" style="background-image: url('${i.image}')">
+					</div>
+					<div class="house-info">
+						<h2>${i.name}</h2>
+						<h3>${i.price}</h3>
+						<h4>${i.rating}</h4>
+					</div>
+				</div>`)
+			})
+		}).catch ((err) => {
+			console.log(err);
+		})
+	}
+})
