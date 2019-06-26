@@ -69,12 +69,12 @@ window.onload= () =>{
 
 	prices.forEach( (pr)=> {
 		price_max_pointer.insertAdjacentHTML('afterBegin',`
-		<li><a href="#">${pr}</a></li>
+		<li><a class= price_max_anc href="#">${pr}</a></li>
 		`)
 	})
 	prices.forEach( (pr)=> {
 		price_min_pointer.insertAdjacentHTML('afterBegin',`
-		<li><a href="#">${pr}</a></li>
+		<li><a class="price_min_anc" href="#">${pr}</a></li>
 		`)
 	})
 
@@ -173,3 +173,31 @@ document.addEventListener( 'click', (e) =>{
 })
 
 //Houses in the DOM by price_max
+
+document.addEventListener( 'click', (e) =>{
+	if  (e.target.classList.contains('price_max_anc')){
+		axios.get(`/api/houses?price_max=${e.target.innerHTML}`).then( (res) => {
+			let results = res.data
+			let pointer= document.getElementById('houses-grid')
+			pointer.innerHTML = ''
+
+			results.forEach( (i) => {
+				let stars=''
+				for (numb=0; numb<= i.rating; numb++){
+					stars += `<i class="far fa-star"></i>`
+				}
+				pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
+					<div class="houses-imagine" style="background-image: url('${i.image}')">
+					</div>
+					<div class="house-info">
+						<h2>${i.name}</h2>
+						<h3>${i.price}</h3>
+						<h4>${stars}</h4>
+					</div>
+				</div>`)
+			})
+		}).catch ((err) => {
+			console.log(err);
+		})
+	}
+})
