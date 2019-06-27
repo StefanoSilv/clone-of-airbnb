@@ -121,9 +121,8 @@ window.onload= () =>{
 	// }
 
 	//Houses in the DOM filtered
-
+	let url=''
 	document.addEventListener( 'click', (e) =>{
-		let url=''
 		if  (e.target.classList.contains('price_max_anc')){
 			url += `&price_max=${e.target.innerHTML}`
 		}
@@ -143,14 +142,15 @@ window.onload= () =>{
 			url += `&city=${e.target.id}`
 		}
 		if  (e.target.classList.contains('random_name3')){
-			url += `&city=${e.target.id}`
+			url += `&type=${e.target.id}`
 		}
-
+		console.log(url);
+		console.log(e.target);
 		axios.get(`/api/houses?${url}`).then( (res) => {
+			console.log(res.data);
 			let results = res.data
 			let pointer= document.getElementById('houses-grid')
 			pointer.innerHTML = ''
-
 			results.forEach( (i) => {
 				let stars=''
 				for (numb=0; numb<= i.rating; numb++){
