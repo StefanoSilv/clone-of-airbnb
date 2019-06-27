@@ -4,6 +4,10 @@ const express = require('express') //Require express
 const app = express() //The function app
 const path= require('path')
 
+//Requiring the dotenv file
+
+require('dotenv').config()
+
 //Requiring the database
 
 const db= require('./db.js')
@@ -33,6 +37,6 @@ app.get('/api/houses', require('./controllers/houses_get.js'))
 
 //The server is listening
 
-app.listen(3010, () => {
-	console.log('The server airbnb is running on port 3010');
+app.listen(process.env.PORT, () => {
+	console.log(`The server airbnb is running on port ${process.env.PORT}`);
 })
