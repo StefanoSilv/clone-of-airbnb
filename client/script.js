@@ -1,4 +1,29 @@
 window.onload= () =>{
+
+	axios.get(`/api/houses`).then( (res) => {
+		let results = res.data
+		let pointer= document.getElementById('houses-grid')
+		pointer.innerHTML = ''
+		results.forEach( (i) => {
+			let stars=''
+			for (numb=0; numb<= i.rating; numb++){
+				stars += `<i class="fas fa-star"></i>`
+			}
+			pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
+					<div class="houses-imagine" style="background-image: url('${i.image}')">
+					</div>
+					<div class="house-info">
+						<h2>${i.name}</h2>
+						<h3>${i.price} €</h3>
+						<h4>${stars}</h4>
+					</div>
+				</div>`)
+		})
+	}).catch ((err) => {
+		console.log(err);
+	})
+
+
 	// Countries in the DOM
 	axios.get('/api/countries').then( (res)=>{
 		let country= res.data
@@ -80,18 +105,21 @@ window.onload= () =>{
 
 	//Ratings search in the DOM
 
-	let ratings=[1,2,3,4,5]
 	rating_max_pointer= document.getElementById('rating_max')
 	rating_min_pointer= document.getElementById('rating_min')
 
 	let stars_max=''
-	for (numb=0; numb<= 5; numb++){
-		stars_max += `<li><a class= rating_max_anc href="#"><i class="fas fa-star"></i></a></li>`
+	for (numb=1; numb<= 5; numb++){
+		let code=`<i class="fas fa-star"></i>`
+		let stars_numb= code.repeat(numb)
+		stars_max += `<li><a class= rating_max_anc href="#">${stars_numb}</a></li>`
 	}
 
 	let stars_min=''
-	for (numbe=0; numbe<= 5; numbe++){
-		stars_min += `<li><a class="rating_min_anc" href="#"><i class="fas fa-star"></i></a></li>`
+	for (numb1=1; numb1<= 5; numb1++){
+		let code1=`<i class="fas fa-star"></i>`
+		let stars_numb1= code1.repeat(numb1)
+		stars_min += `<li><a class= rating_min_anc href="#">${stars_numb1}</a></li>`
 	}
 
 	rating_max_pointer.insertAdjacentHTML('afterBegin',`${stars_max}`)

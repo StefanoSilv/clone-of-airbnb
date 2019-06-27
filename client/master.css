@@ -135,6 +135,10 @@ h2{
 	background-color: white;
 }
 
+#rating_min > li , #rating_max > li{
+	min-width: 100px;
+}
+
 #houses-grid{
 	height:80%;
 	display: grid;
