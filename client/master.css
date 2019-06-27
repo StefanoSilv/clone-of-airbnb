@@ -8,7 +8,8 @@ html{
 }
 body{
 	height:100%;
-	background-color: rgb(255, 255, 255)
+	background-color: rgb(255, 255, 255);
+	background-image: url('https://res.cloudinary.com/do8qdtgy8/image/upload/v1561622219/airbnb/background2_pqzlmn.jpg');
 }
 
 h2{
@@ -16,130 +17,84 @@ h2{
 }
 
 .logo{
-	margin-top: 3%;
-	margin-left: 3%;
-	background-image: url('./images/airbnb.jpeg');
+	background-image: url('https://res.cloudinary.com/do8qdtgy8/image/upload/v1561622372/airbnb/traveling-around-the-world-featured1-800x400_calhbe.jpg');
 	background-position: center;
 	background-size: cover;
-	width:10%;
-	height:15%;
-	margin-bottom: 5%;
+	width:100%;
+	height:20%;
+	background-position:center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
-#menu,  #price_min, #rating_min {
+#menu {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	list-style: none;
-	grid-column-gap: 6%;
-	padding-left: 15%;
-	padding-right: 5%;
-	width: 60%;
+	width: 70%;
+	padding-bottom: 2%;
+	border-bottom: : 1px solid rgb(186, 186, 186);
+	margin: 0 auto;
+}
+
+#menu > li{
+	background-color: white;
+	border: 1px solid rgb(186, 186, 186);
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 5%;
 	padding-bottom: 5%;
+	width: 90%;
+}
+
+#price_max, #price_min, #rating_min,#rating_max {
+	display: grid;
+	grid-template-columns: 1fr;
+	list-style: none;
 	border-bottom: : 1px solid rgb(186, 186, 186);
 }
 
-#rating_max{
+.list_grid{
+	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-	list-style: none;
-	grid-column-gap: 6%;
-	padding-right: 5%;
-	padding-left: 15%;
-	width: 60%;
-	border-bottom: : 1px solid rgb(186, 186, 186);
-}
-
-#price_max{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-	list-style: none;
-	grid-column-gap: 6%;
-	padding-right: 5%;
-	padding-left: 15%;
-	width: 60%;
-	border-bottom: : 1px solid rgb(186, 186, 186);
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	justify-content: center;
+	grid-column-gap: 5%;
+	width: 70%;
 }
 
 #city-banner{
-	display:grid;
-	margin-left: 15%;
-	margin-right: 5%;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 6%;
-	grid-row-gap: 35%;
-	width: 80%;
-	padding-top: 5%;
+	grid-row-gap: 7%;
 }
 
-#country-banner{
+#country-banner, #city-banner, #type-banner{
 	height: 10%;
 	display:grid;
-	margin-left: 15%;
-	margin-right: 5%;
+	margin: 0 auto;
+	width: 70%;
+	padding-top: 3%;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 6%;
-	width: 80%;
 }
 
 #type-banner{
 	height: 10%;
-	margin-top: 5%;
-	display:grid;
-	margin-left: 15%;
-	margin-right: 5%;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 6%;
-	width: 80%;
 }
 
-.city_minibanner{
+.city_minibanner, .type_minibanner, .country_minibanner{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	border: 1px solid rgb(186, 186, 186);
-	height:130%;
+	height:100%;
 	border-radius: 10px;
-}
-
-.country_minibanner{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	background-color: white;
 	grid-row-gap: 10%;
-	border: 1px solid rgb(186, 186, 186);
-	height:130%;
-	border-radius: 10px;
 }
 
-.type_minibanner{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	border: 1px solid rgb(186, 186, 186);
-	height:130%;
-	border-radius: 10px;
-}
-
-.city-imagine{
+.city-imagine, .country-imagine, .type-imagine{
 	width:80%;
 	background-position: center;
 	background-size: cover;
-	/* background-image: url('./images/paris.jpg'); */
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-}
-
-.country-imagine{
-	width:80%;
-	background-position: center;
-	background-size: cover;
-	/* background-image: url('./images/paris.jpg'); */
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-}
-
-.type-imagine{
-	width:80%;
-	background-position: center;
-	background-size: cover;
-	/* background-image: url('./images/paris.jpg'); */
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -170,15 +125,14 @@ h2{
 	text-decoration: none;
 }
 
-#rating_min > li , #rating_max > li , #price_min > li , #price_max > li , #menu > li{
+#rating_min > li , #rating_max > li , #price_min > li , #price_max > li{
 	border: 1px solid rgb(186, 186, 186);
 	border-radius: 5px;
 	text-align: center;
-	padding-right:15%;
-	padding-left:15%;
-	padding-top: 10%;
-	padding-bottom: 10%;
-	width:100%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	width:50%;
+	background-color: white;
 }
 
 #houses-grid{
@@ -207,10 +161,7 @@ h2{
 	border-bottom-right-radius: 5px;
 }
 
-#text_rating_min, #text_rating_max, #text_price_max, #text_price_min{
-	padding-left: 15%;
-}
 
 i{
-	color: yellow;
+	color: rgb(205, 187, 24);
 }
