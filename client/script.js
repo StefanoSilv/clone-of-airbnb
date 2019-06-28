@@ -23,114 +23,110 @@ window.onload= () =>{
 	})
 
 
-	// Countries in the DOM
-
-	// document.addEventListener( 'click', (e) =>{
-	// 	if(e.target.classList.contains('click-banner')){
-	//
-	// 	}
-	// })
-	axios.get('/api/countries').then( (res)=>{
-		let country= res.data
-		let country_pointer= document.getElementById('country-banner')
-
-		country.forEach( (c)=> {
-			country_pointer.insertAdjacentHTML('afterBegin',`
-			<a class="country_minibanner">
-				<div class="country-imagine" style="background-image: url('${c.image}')">
-				</div>
-				<div class="country-info">
-				<h3 class="random_name1" id=${c.id}>${c.name}</h3>
-				</div>
-			</a>
-			`)
-		})
-	}).catch((err) => {
-		console.log(err);
-	})
-
-	//Cities in the DOM
-	axios.get('/api/cities').then( (res)=>{
-		let city= res.data
-		let city_pointer= document.getElementById('city-banner')
-
-		city.forEach( (j)=> {
-			city_pointer.insertAdjacentHTML('afterBegin',`
-			<a class="city_minibanner">
-				<div class="city-imagine" style="background-image: url('${j.image}')">
-				</div>
-				<div class="city-info">
-				<h3 class="random_name2" id=${j.id}>${j.name}</h3>
-				</div>
-			</a>
-			`)
-		})
-	}).catch((err) => {
-		console.log(err);
-	})
-
-	//Types in the DOM
-	axios.get('/api/types').then( (res)=>{
-		let type= res.data
-		let type_pointer= document.getElementById('type-banner')
-
-		type.forEach( (j)=> {
-			type_pointer.insertAdjacentHTML('afterBegin',`
-			<a class="type_minibanner">
-				<div class="type-imagine" style="background-image: url('${j.image}')">
-				</div>
-				<div class="type-info">
-				<h3 class="random_name3" id=${j.id}>${j.name}</h3>
-				</div>
-			</a>
-			`)
-		})
-	}).catch((err) => {
-		console.log(err);
-	})
 
 
+	//Countries, Cities and types in the DOM just when you click
 
-	//Prices in the DOM
-	let prices=[20,50,100,200,300,500]
-	price_max_pointer= document.getElementById('price_max')
-	price_min_pointer= document.getElementById('price_min')
+	document.addEventListener( 'click', (e) =>{
+		if(e.target.classList.contains('price')){
+			let prices=[20,50,100,200,300,500]
+			price_max_pointer= document.getElementById('price_max')
+			price_min_pointer= document.getElementById('price_min')
 
 
-	prices.forEach( (pr)=> {
-		price_max_pointer.insertAdjacentHTML('afterBegin',`
-		<li><a class= price_max_anc href="#">${pr}</a></li>
-		`)
-	})
-	prices.forEach( (pr)=> {
-		price_min_pointer.insertAdjacentHTML('afterBegin',`
-		<li><a class="price_min_anc" href="#">${pr}</a></li>
-		`)
-	})
+			prices.forEach( (pr)=> {
+				price_max_pointer.insertAdjacentHTML('afterBegin',`
+				<li><a class= price_max_anc href="#">${pr}</a></li>
+				`)
+			})
+			prices.forEach( (pr)=> {
+				price_min_pointer.insertAdjacentHTML('afterBegin',`
+				<li><a class="price_min_anc" href="#">${pr}</a></li>
+				`)
+			})
+		}
+		if(e.target.classList.contains('rating')){
+			rating_max_pointer= document.getElementById('rating_max')
+			rating_min_pointer= document.getElementById('rating_min')
 
-	//Ratings search in the DOM
+			let stars_max=''
+			for (numb2=1; numb2<= 5; numb2++){
+				let code=`<i class="fas fa-star rating_max_anc" id=${numb2} class= ""></i>`
+				let stars_numb2= code.repeat(numb2)
+				stars_max += `<li><a href="#">${stars_numb2}</a></li>`
+			}
 
-	rating_max_pointer= document.getElementById('rating_max')
-	rating_min_pointer= document.getElementById('rating_min')
+			let stars_min=''
+			for (numb1=1; numb1<= 5; numb1++){
+				let code1=`<i class="fas fa-star rating_min_anc" id=${numb1}></i>`
+				let stars_numb1= code1.repeat(numb1)
+				stars_min += `<li><a href="#">${stars_numb1}</a></li>`
+			}
 
-	let stars_max=''
-	for (numb2=1; numb2<= 5; numb2++){
-		let code=`<i class="fas fa-star rating_max_anc" id=${numb2} class= ""></i>`
-		let stars_numb2= code.repeat(numb2)
-		stars_max += `<li><a href="#">${stars_numb2}</a></li>`
+			rating_max_pointer.insertAdjacentHTML('afterBegin',`${stars_max}`)
+			rating_min_pointer.insertAdjacentHTML('afterBegin',`${stars_min}`)
+		}
+		if(e.target.classList.contains('country')){
+			axios.get('/api/countries').then( (res)=>{
+				let country= res.data
+				let country_pointer= document.getElementById('country-banner')
+				country.forEach( (c)=> {
+					country_pointer.insertAdjacentHTML('afterBegin',`
+					<a class="country_minibanner">
+						<div class="country-imagine" style="background-image: url('${c.image}')">
+						</div>
+						<div class="country-info">
+						<h3 class="random_name1" id=${c.id}>${c.name}</h3>
+						</div>
+					</a>
+					`)
+				})
+			}).catch((err) => {
+				console.log(err);
+			})
+		}
+		if(e.target.classList.contains('city')){
+			axios.get('/api/cities').then( (res)=>{
+				let city= res.data
+				let city_pointer= document.getElementById('city-banner')
+
+				city.forEach( (j)=> {
+					city_pointer.insertAdjacentHTML('afterBegin',`
+					<a class="city_minibanner">
+						<div class="city-imagine" style="background-image: url('${j.image}')">
+						</div>
+						<div class="city-info">
+						<h3 class="random_name2" id=${j.id}>${j.name}</h3>
+						</div>
+					</a>
+					`)
+				})
+			}).catch((err) => {
+				console.log(err);
+			})
+		}
+		if(e.target.classList.contains('type')){
+			axios.get('/api/types').then( (res)=>{
+				let type= res.data
+				let type_pointer= document.getElementById('type-banner')
+
+				type.forEach( (j)=> {
+					type_pointer.insertAdjacentHTML('afterBegin',`
+					<a class="type_minibanner">
+						<div class="type-imagine" style="background-image: url('${j.image}')">
+						</div>
+						<div class="type-info">
+						<h3 class="random_name3" id=${j.id}>${j.name}</h3>
+						</div>
+					</a>
+					`)
+				})
+			}).catch((err) => {
+				console.log(err);
+			})
+		}
 	}
-
-	let stars_min=''
-	for (numb1=1; numb1<= 5; numb1++){
-		let code1=`<i class="fas fa-star rating_min_anc" id=${numb1}></i>`
-		let stars_numb1= code1.repeat(numb1)
-		stars_min += `<li><a href="#">${stars_numb1}</a></li>`
-	}
-
-	rating_max_pointer.insertAdjacentHTML('afterBegin',`${stars_max}`)
-	rating_min_pointer.insertAdjacentHTML('afterBegin',`${stars_min}`)
-
-
+	)
 
 	//Houses in the DOM filtered
 	let url=''
