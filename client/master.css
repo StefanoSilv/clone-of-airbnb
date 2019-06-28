@@ -7,10 +7,11 @@ html{
 	height:100%;
 }
 body{
-	height:100%;
+	height:120%;
 	background-color: rgb(255, 255, 255);
 	background-image: url('https://res.cloudinary.com/do8qdtgy8/image/upload/v1561622219/airbnb/background2_pqzlmn.jpg');
 }
+
 
 h2{
 	display: inline-block;
@@ -32,9 +33,9 @@ h2{
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	list-style: none;
 	width: 70%;
-	padding-bottom: 2%;
 	border-bottom: : 1px solid rgb(186, 186, 186);
 	margin: 0 auto;
+	margin-bottom: 4%;
 }
 
 #menu > li > a{
@@ -71,7 +72,7 @@ h2{
 	display:grid;
 	margin: 0 auto;
 	width: 70%;
-	padding-top: 3%;
+	margin-top: 3%;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 6%;
 }
@@ -157,10 +158,13 @@ ul{
 #price_max > li > a, #price_min > li > a, #rating_max > li > a, #rating_min > li > a{
 	width: 100%;
 	display: inline-block;
+	color: black;
+	font-weight: 600;
 }
 
 #text_price_max, #text_price_min{
 	text-align: center;
+	width: 100%;
 }
 
 .house-info{
