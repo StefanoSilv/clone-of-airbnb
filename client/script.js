@@ -22,11 +22,10 @@ window.onload= () =>{
 		console.log(err);
 	})
 
-
-
-
 	//Countries, Cities and types in the DOM just when you click
-
+	//Houses in the DOM filtered
+	//Just one addEventListener
+	let url=''
 	document.addEventListener( 'click', (e) =>{
 		if(e.target.classList.contains('price')){
 			let prices=[20,50,100,200,300,500]
@@ -125,12 +124,6 @@ window.onload= () =>{
 				console.log(err);
 			})
 		}
-	}
-	)
-
-	//Houses in the DOM filtered
-	let url=''
-	document.addEventListener( 'click', (e) =>{
 		if  (e.target.classList.contains('price_max_anc')){
 			url += `&price_max=${e.target.innerHTML}`
 		}
