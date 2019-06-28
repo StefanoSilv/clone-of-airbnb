@@ -37,6 +37,12 @@ h2{
 	margin: 0 auto;
 }
 
+#menu > li > a{
+	color: rgb(196, 196, 196);
+	width: 100%;
+	display: inline-block;
+}
+
 #menu > li{
 	background-color: white;
 	border: 1px solid rgb(186, 186, 186);
@@ -45,13 +51,6 @@ h2{
 	padding-top: 5%;
 	padding-bottom: 5%;
 	width: 90%;
-}
-
-#price_max, #price_min, #rating_min,#rating_max {
-	display: grid;
-	grid-template-columns: 1fr;
-	list-style: none;
-	border-bottom: : 1px solid rgb(186, 186, 186);
 }
 
 .list_grid{
@@ -120,23 +119,14 @@ h2{
 	padding-bottom:5%;
 }
 
-#rating_min > li > a , #rating_max > li > a , #price_min > li > a , #price_max > li > a , #menu > li > a {
-	color: rgb(196, 196, 196);
+
+
+a{
 	text-decoration: none;
 }
 
-#rating_min > li , #rating_max > li , #price_min > li , #price_max > li{
-	border: 1px solid rgb(186, 186, 186);
-	border-radius: 5px;
-	text-align: center;
-	padding-top: 5%;
-	padding-bottom: 5%;
-	width:50%;
-	background-color: white;
-}
-
-#rating_min > li , #rating_max > li{
-	min-width: 100px;
+ul{
+	list-style: none;
 }
 
 #houses-grid{
@@ -158,6 +148,19 @@ h2{
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	height:150px;
+}
+
+#price_max > li, #price_min > li{
+	text-align: center;
+}
+
+#price_max > li > a, #price_min > li > a, #rating_max > li > a, #rating_min > li > a{
+	width: 100%;
+	display: inline-block;
+}
+
+#text_price_max, #text_price_min{
+	text-align: center;
 }
 
 .house-info{
