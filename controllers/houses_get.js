@@ -44,10 +44,10 @@ module.exports = (req, res) => {
 			query += `BETWEEN ${req.query.price_min} AND ${req.query.price_max} `
 			i++
 		}else if(req.query.price_min){
-			query += `> ${req.query.price_min} `
+			query += `>= ${req.query.price_min} `
 			i++
 		}else{
-			query += `< ${req.query.price_max} `
+			query += `<= ${req.query.price_max} `
 			i++
 		}
 	}
@@ -62,10 +62,10 @@ module.exports = (req, res) => {
 			query += `BETWEEN ${req.query.rooms_min} AND ${req.query.rooms_max} `
 			i++
 		}else if(req.query.rooms_min){
-			query += `> ${req.query.rooms_min} `
+			query += `>= ${req.query.rooms_min} `
 			i++
 		}else{
-			query += `< ${req.query.rooms_max} `
+			query += `<= ${req.query.rooms_max} `
 			i++
 		}
 	}
@@ -80,10 +80,10 @@ module.exports = (req, res) => {
 			query += `BETWEEN ${req.query.rating_min} AND ${req.query.rating_max} `
 			i++
 		}else if(req.query.rating_min){
-			query += `> ${req.query.rating_min} `
+			query += `>= ${req.query.rating_min} `
 			i++
 		}else{
-			query += `< ${req.query.rating_max} `
+			query += `<= ${req.query.rating_max} `
 			i++
 		}
 	}

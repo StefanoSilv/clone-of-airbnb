@@ -114,17 +114,17 @@ window.onload= () =>{
 	rating_min_pointer= document.getElementById('rating_min')
 
 	let stars_max=''
-	for (numb=1; numb<= 5; numb++){
-		let code=`<i class="fas fa-star"></i>`
-		let stars_numb= code.repeat(numb)
-		stars_max += `<li><a class= rating_max_anc href="#">${stars_numb}</a></li>`
+	for (numb2=1; numb2<= 5; numb2++){
+		let code=`<i class="fas fa-star rating_max_anc" id=${numb2} class= ""></i>`
+		let stars_numb2= code.repeat(numb2)
+		stars_max += `<li><a href="#">${stars_numb2}</a></li>`
 	}
 
 	let stars_min=''
 	for (numb1=1; numb1<= 5; numb1++){
-		let code1=`<i class="fas fa-star"></i>`
+		let code1=`<i class="fas fa-star rating_min_anc" id=${numb1}></i>`
 		let stars_numb1= code1.repeat(numb1)
-		stars_min += `<li><a class= rating_min_anc href="#">${stars_numb1}</a></li>`
+		stars_min += `<li><a href="#">${stars_numb1}</a></li>`
 	}
 
 	rating_max_pointer.insertAdjacentHTML('afterBegin',`${stars_max}`)
@@ -142,10 +142,10 @@ window.onload= () =>{
 			url += `&price_min=${e.target.innerHTML}`
 		}
 		if  (e.target.classList.contains('rating_max_anc')){
-			url += `&rating_max=${e.target.innerHTML}`
+			url += `&rating_max=${e.target.id}`
 		}
 		if  (e.target.classList.contains('rating_min_anc')){
-			url += `&rating_min=${e.target.innerHTML}`
+			url += `&rating_min=${e.target.id}`
 		}
 		if  (e.target.classList.contains('random_name1')){
 			url += `&country=${e.target.id}`
@@ -156,6 +156,7 @@ window.onload= () =>{
 		if  (e.target.classList.contains('random_name3')){
 			url += `&type=${e.target.id}`
 		}
+		console.log(e.target);
 		let pointer= document.getElementById('houses-grid')
 		axios.get(`/api/houses?${url}`).then( (res) => {
 			let results = res.data
@@ -165,8 +166,9 @@ window.onload= () =>{
 			if(results.length){
 				results.forEach( (i) => {
 					let stars=''
-					for (numb=0; numb<= i.rating; numb++){
+					for (numb=1; numb<= i.rating; numb++){
 						stars += `<i class="fas fa-star"></i>`
+						console.log(numb)
 					}
 					pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
 							<div class="houses-imagine" style="background-image: url('${i.image}')">
