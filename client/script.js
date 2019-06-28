@@ -1,5 +1,4 @@
 window.onload= () =>{
-
 	axios.get(`/api/houses`).then( (res) => {
 		let results = res.data
 		let pointer= document.getElementById('houses-grid')
@@ -25,6 +24,12 @@ window.onload= () =>{
 
 
 	// Countries in the DOM
+
+	// document.addEventListener( 'click', (e) =>{
+	// 	if(e.target.classList.contains('click-banner')){
+	//
+	// 	}
+	// })
 	axios.get('/api/countries').then( (res)=>{
 		let country= res.data
 		let country_pointer= document.getElementById('country-banner')
@@ -151,27 +156,31 @@ window.onload= () =>{
 		if  (e.target.classList.contains('random_name3')){
 			url += `&type=${e.target.id}`
 		}
+		let pointer= document.getElementById('houses-grid')
 		axios.get(`/api/houses?${url}`).then( (res) => {
 			let results = res.data
+			console.log('results', res.data);
 			let pointer= document.getElementById('houses-grid')
 			pointer.innerHTML = ''
-			results.forEach( (i) => {
-				let stars=''
-				for (numb=0; numb<= i.rating; numb++){
-					stars += `<i class="fas fa-star"></i>`
-				}
-				pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
-						<div class="houses-imagine" style="background-image: url('${i.image}')">
-						</div>
-						<div class="house-info">
-							<h2>${i.name}</h2>
-							<h3>${i.price} €</h3>
-							<h4>${stars}</h4>
-						</div>
-					</div>`)
-			})
-		}).catch ((err) => {
-			console.log(err);
+			if(results.length){
+				results.forEach( (i) => {
+					let stars=''
+					for (numb=0; numb<= i.rating; numb++){
+						stars += `<i class="fas fa-star"></i>`
+					}
+					pointer.insertAdjacentHTML('afterBegin', `<div class="houses">
+							<div class="houses-imagine" style="background-image: url('${i.image}')">
+							</div>
+							<div class="house-info">
+								<h2>${i.name}</h2>
+								<h3>${i.price} €</h3>
+								<h4>${stars}</h4>
+							</div>
+						</div>`)
+				})
+			}else{pointer.innerHTML= '<h1>No Results</h1>'}}).catch ((err) => {
+			console.log('err', err);
+			pointer.innerHTML= '<h1>No Results</h1>'
 		})
 	}
 	)
