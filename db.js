@@ -1,14 +1,14 @@
 //Setting of the database
 
-const {Client}= require('pg')
+const {Client} = require('pg')
 
-const db= new Client({
+const db = new Client({
 	connectionString: process.env.DATABASE_URL
 })
 
 //Connection of the database
 
-db.connect( (err) =>{
+db.connect( (err) => {
 	if (err){
 		console.log('The database airbnb is not connected');
 	}else{
@@ -16,4 +16,4 @@ db.connect( (err) =>{
 	}
 })
 
-module.exports=db
+module.exports = db

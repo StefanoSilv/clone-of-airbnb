@@ -88,18 +88,11 @@ module.exports = (req, res) => {
 		}
 	}
 
-	// if (req.query.price_max) {
-	// 	query += `price < ${req.query.price_max} `
-	// }
-	// if (req.query.price_min) {
-	// 	query += `price > ${req.query.price_min} `
-	// }
-
 	console.log(req.query);
 	console.log(query)
 	console.log(req.query);
 
-	db.query(query, (err, result) => {
+	db.query( query, (err, result) => {
 		if (err) {
 			res.send(err)
 		} else {

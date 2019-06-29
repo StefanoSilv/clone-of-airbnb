@@ -2,7 +2,7 @@
 
 const express = require('express') //Require express
 const app = express() //The function app
-const path= require('path')
+const path = require('path')
 
 //Requiring the dotenv file
 
@@ -10,7 +10,7 @@ require('dotenv').config()
 
 //Requiring the database
 
-const db= require('./db.js')
+const db = require('./db.js')
 
 //The server is running
 
@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
 
 //API
 
-app.get('/api/types', require('./controllers/type_get.js'))
-app.get('/api/countries', require('./controllers/country_get.js'))
-app.get('/api/cities', require('./controllers/city_get.js'))
+app.get('/api/types', require('./controllers/types_get.js'))
+app.get('/api/countries', require('./controllers/countries_get.js'))
+app.get('/api/cities', require('./controllers/cities_get.js'))
 
 //API with query
 
